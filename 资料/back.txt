@@ -1,0 +1,88 @@
+var MenuList = new List<MenuModel>()
+            {
+                new MenuModel(){ID=1,MenuName="系统管理",ParentID=0,LinkUrl="/Manage",Grade=1,Sort=0,MenuImg=""},
+                new MenuModel(){ID=2,MenuName="菜单列表",ParentID=1,LinkUrl="/Manage/Menu/Index",Grade=2,Sort=0,MenuImg=""},
+                new MenuModel(){ID=3,MenuName="权限列表",ParentID=1,LinkUrl="/Manage/Authority/Index",Grade=2,Sort=0,MenuImg=""},
+                new MenuModel(){ID=4,MenuName="日志列表",ParentID=1,LinkUrl="/Manage/ManagerLog/Index",Grade=2,Sort=0,MenuImg=""},
+                new MenuModel(){ID=5,MenuName="管理员列表",ParentID=1,LinkUrl="/Manage/Manager/Index",Grade=2,Sort=0,MenuImg=""},
+                new MenuModel(){ID=6,MenuName="所有学生列表",ParentID=1,LinkUrl="/Manage/Student/AllStudentList",Grade=2,Sort=0,MenuImg=""},
+                new MenuModel(){ID=7,MenuName="主管学生列表",ParentID=1,LinkUrl="/Manage/Student/StudentList",Grade=2,Sort=0,MenuImg=""},
+                new MenuModel(){ID=8,MenuName="产品管理",ParentID=1,LinkUrl="/Manage/Product/Index",Grade=2,Sort=0,MenuImg=""},
+                new MenuModel(){ID=9,MenuName="所有课程列表",ParentID=1,LinkUrl="/Manage/Course/CourseRecord",Grade=2,Sort=0,MenuImg=""},
+                new MenuModel(){ID=10,MenuName="产品购买记录",ParentID=1,LinkUrl="/Manage/Manager/Index",Grade=2,Sort=0,MenuImg=""},
+                new MenuModel(){ID=11,MenuName="系统管理11",ParentID=0,LinkUrl="/Manage",Grade=1,Sort=0,MenuImg=""},
+                new MenuModel(){ID=12,MenuName="菜单列表",ParentID=11,LinkUrl="/Manage/Menu/Index",Grade=2,Sort=0,MenuImg=""},
+                new MenuModel(){ID=13,MenuName="权限列表",ParentID=11,LinkUrl="/Manage/Authority/Index",Grade=2,Sort=0,MenuImg=""},
+                new MenuModel(){ID=14,MenuName="日志列表",ParentID=11,LinkUrl="/Manage/ManagerLog/Index",Grade=2,Sort=0,MenuImg=""},
+                new MenuModel(){ID=15,MenuName="管理员列表",ParentID=11,LinkUrl="/Manage/Manager/Index",Grade=2,Sort=0,MenuImg=""},
+            };
+            MenuList.ForEach(s => context.Menu.AddOrUpdate(m => m.ID, s));
+            context.SaveChanges();
+
+            var AuthorityList = new List<AuthorityModel>()
+            {
+                new AuthorityModel(){AuthorityID=1,Name="超级管理员",AddTime=DateTime.Now},
+                new AuthorityModel(){AuthorityID=2,Name="管理员",AddTime=DateTime.Now},
+            };
+            AuthorityList.ForEach(s => context.Authority.AddOrUpdate(m => m.AuthorityID, s));
+            context.SaveChanges();
+
+            var AuthorityItemList = new List<AuthorityItemModel>()
+            {
+                new AuthorityItemModel(){ID=1,AuthorityID=1,MenuID=1,AddTime=DateTime.Now},
+                new AuthorityItemModel(){ID=2,AuthorityID=1,MenuID=2,AddTime=DateTime.Now},
+                new AuthorityItemModel(){ID=3,AuthorityID=1,MenuID=3,AddTime=DateTime.Now},
+                new AuthorityItemModel(){ID=4,AuthorityID=1,MenuID=4,AddTime=DateTime.Now},
+                new AuthorityItemModel(){ID=5,AuthorityID=1,MenuID=5,AddTime=DateTime.Now},
+                new AuthorityItemModel(){ID=6,AuthorityID=2,MenuID=1,AddTime=DateTime.Now},
+                new AuthorityItemModel(){ID=7,AuthorityID=2,MenuID=5,AddTime=DateTime.Now},
+            };
+            AuthorityItemList.ForEach(s => context.AuthorityItem.AddOrUpdate(m => new {m.AuthorityID, m.MenuID }, s));
+            context.SaveChanges();
+
+            var ManagerList = new List<ManagerModel>
+            {
+                new ManagerModel{ID=1,LoginName="admin",ManagerName="admin",Phone="18888888888",Password="QSvnQL2VrJA=",AuthorityID=1,AddTime=DateTime.Now,IsAdmin=true,Operate=0},
+                new ManagerModel{ID=2,LoginName="test",ManagerName="test",Phone="17777777777",Password="QSvnQL2VrJA=",AuthorityID=2,AddTime=DateTime.Now,IsAdmin=true,Operate=1},
+                new ManagerModel{ID=3,LoginName="ceshi",ManagerName="ceshi",Phone="16666666666",Password="123456",AuthorityID=1,AddTime=DateTime.Now,IsAdmin=true,Operate=2},
+                new ManagerModel{ID=4,LoginName="ceshi1",ManagerName="ceshi",Phone="16666666666",Password="123456",AuthorityID=2,AddTime=DateTime.Now,IsAdmin=true,Operate=3},
+                new ManagerModel{ID=5,LoginName="ceshi2",ManagerName="ceshi",Phone="16666666666",Password="123456",AuthorityID=2,AddTime=DateTime.Now,IsAdmin=true,Operate=0},
+                new ManagerModel{ID=6,LoginName="ceshi3",ManagerName="ceshi",Phone="16666666666",Password="123456",AuthorityID=1,AddTime=DateTime.Now,IsAdmin=true,Operate=0},
+                new ManagerModel{ID=7,LoginName="ceshi4",ManagerName="ceshi",Phone="16666666666",Password="123456",AuthorityID=2,AddTime=DateTime.Now,IsAdmin=true,Operate=0},
+                new ManagerModel{ID=8,LoginName="ceshi5",ManagerName="ceshi",Phone="16666666666",Password="123456",AuthorityID=1,AddTime=DateTime.Now,IsAdmin=true,Operate=0},
+                new ManagerModel{ID=9,LoginName="ceshi6",ManagerName="ceshi",Phone="16666666666",Password="123456",AuthorityID=1,AddTime=DateTime.Now,IsAdmin=true,Operate=0},
+                new ManagerModel{ID=10,LoginName="ceshi7",ManagerName="ceshi",Phone="16666666666",Password="123456",AuthorityID=2,AddTime=DateTime.Now,IsAdmin=true,Operate=0},
+                new ManagerModel{ID=11,LoginName="ceshi8",ManagerName="ceshi",Phone="16666666666",Password="123456",AuthorityID=1,AddTime=DateTime.Now,IsAdmin=true,Operate=0},
+                new ManagerModel{ID=12,LoginName="ceshi9",ManagerName="ceshi",Phone="16666666666",Password="123456",AuthorityID=1,AddTime=DateTime.Now,IsAdmin=true,Operate=0},
+            };
+            ManagerList.ForEach(s => context.Manager.AddOrUpdate(m => m.ID, s));
+            context.SaveChanges();
+
+            var ProductList = new List<ProductMOD>()
+            {
+                new ProductMOD(){ID=1,AddTime=DateTime.UtcNow,ProductName="产品(1个月,每周1节)",Frequency=1,LimitDate=1,CourseCount=4,LeaveCount=1,PriceMoney=2000,IsEnable=true},
+                new ProductMOD(){ID=2,AddTime=DateTime.UtcNow,ProductName="产品(3个月,每周1节)",Frequency=1,LimitDate=3,CourseCount=12,LeaveCount=3,PriceMoney=6000,IsEnable=true},
+                new ProductMOD(){ID=2,AddTime=DateTime.UtcNow,ProductName="产品(1个月,每周2节)",Frequency=2,LimitDate=1,CourseCount=8,LeaveCount=1,PriceMoney=6000,IsEnable=true},
+                new ProductMOD(){ID=2,AddTime=DateTime.UtcNow,ProductName="产品(3个月,每周2节)",Frequency=2,LimitDate=3,CourseCount=24,LeaveCount=1,PriceMoney=6000,IsEnable=true},
+            };
+            ProductList.ForEach(s => context.Product.AddOrUpdate(m => m.ID, s));
+            context.SaveChanges();
+
+            var StudentList = new List<StudentMOD>()
+            {
+                new StudentMOD(){ ID=1,AddTime=DateTime.UtcNow,BackupEmail="beiyong@qq.com",Birthday="2000年1月1日",Character="学生性格",ChinaName="张三",City="城市",Country="国家",Email="13333333333@email.com",EnglishName="英文名",FamilyEmail="jiazhang@email.com",FamilyName="家长姓名",FamilyPhone="家长电话",FamilyRelationship="家长关系",Hobbies="爱好",HomePhone="住宅电话",IsNonage=false,IsToChina=true,LearningAttitude="学习态度",LearningContent="学习内容",LearningMethod="学习方法",LearningNeeds="学习需求",LoginName="LoginName1",NativeLanguage="母语",Phone="13333333333",Six=false,Skype="Skype",StudentNumber="学生编号",Supervisor=1,TabooTopic="禁忌话题",TimeZone=8,Vitae="学生背景",Wechat="微信号",WorkPhone="工作电话"},
+                new StudentMOD(){ ID=2,AddTime=DateTime.UtcNow,BackupEmail="beiyong@qq.com",Birthday="2000年1月1日",Character="学生性格",ChinaName="李四",City="城市",Country="国家",Email="14444444444@email.com",EnglishName="英文名",FamilyEmail="jiazhang@email.com",FamilyName="家长姓名",FamilyPhone="家长电话",FamilyRelationship="家长关系",Hobbies="爱好",HomePhone="住宅电话",IsNonage=false,IsToChina=true,LearningAttitude="学习态度",LearningContent="学习内容",LearningMethod="学习方法",LearningNeeds="学习需求",LoginName="LoginName2",NativeLanguage="母语",Phone="14444444444",Six=false,Skype="Skype",StudentNumber="学生编号",Supervisor=2,TabooTopic="禁忌话题",TimeZone=8,Vitae="学生背景",Wechat="微信号",WorkPhone="工作电话"},
+                new StudentMOD(){ ID=3,AddTime=DateTime.UtcNow,BackupEmail="beiyong@qq.com",Birthday="2000年1月1日",Character="学生性格",ChinaName="王五",City="城市",Country="国家",Email="15555555555@email.com",EnglishName="英文名",FamilyEmail="jiazhang@email.com",FamilyName="家长姓名",FamilyPhone="家长电话",FamilyRelationship="家长关系",Hobbies="爱好",HomePhone="住宅电话",IsNonage=false,IsToChina=true,LearningAttitude="学习态度",LearningContent="学习内容",LearningMethod="学习方法",LearningNeeds="学习需求",LoginName="LoginName3",NativeLanguage="母语",Phone="15555555555",Six=false,Skype="Skype",StudentNumber="学生编号",Supervisor=1,TabooTopic="禁忌话题",TimeZone=8,Vitae="学生背景",Wechat="微信号",WorkPhone="工作电话"},
+            };
+            StudentList.ForEach(s => context.Student.AddOrUpdate(m => m.ID, s));
+            context.SaveChanges();
+
+            //学生产品表
+            var StudentProductList = new List<StudentProductMOD>()
+            {
+                new StudentProductMOD(){ID=1,StudentID=3,AddTime=DateTime.UtcNow,EndDate=DateTime.UtcNow.AddMonths(1),Frequency=1,IsInstallment=false,LeaveCount=1,LimitDate=1,NextPayDate=DateTime.UtcNow,NextPayMoney=0,PriceMoney=2000,ProductID=1,ProductName="产品(1个月,每周1节)",ProductStatus=0,RestOfCourseCount=4,StartDate=DateTime.UtcNow,TotalCourseCount=4,UnliquidatedMoney=0,UseLeaveCount=0},
+                new StudentProductMOD(){ID=2,StudentID=2,AddTime=DateTime.UtcNow,EndDate=DateTime.UtcNow.AddMonths(1),Frequency=2,IsInstallment=false,LeaveCount=3,LimitDate=3,NextPayDate=DateTime.UtcNow,NextPayMoney=0,PriceMoney=2000,ProductID=2,ProductName="产品(1个月,每周2节)",ProductStatus=0,RestOfCourseCount=8,StartDate=DateTime.UtcNow,TotalCourseCount=8,UnliquidatedMoney=0,UseLeaveCount=0},
+                new StudentProductMOD(){ID=3,StudentID=1,AddTime=DateTime.UtcNow,EndDate=DateTime.UtcNow.AddMonths(1),Frequency=1,IsInstallment=true,LeaveCount=1,LimitDate=1,NextPayDate=DateTime.UtcNow.AddDays(3),NextPayMoney=500,PriceMoney=2000,ProductID=1,ProductName="产品(1个月,每周1节)",ProductStatus=0,RestOfCourseCount=4,StartDate=DateTime.UtcNow,TotalCourseCount=4,UnliquidatedMoney=2000,UseLeaveCount=0},
+            };
+            StudentProductList.ForEach(s => context.StudentProduct.AddOrUpdate(m => m.ID, s));
+            context.SaveChanges();

@@ -1,0 +1,18 @@
+文章地址：https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
+
+第一次使用
+程序包控制台命令，选中DAL层所在的项目
+enable-migrations(命令在ContosoUniversity项目中创建一个Migrations文件夹，并在该文件夹中放入一个Configuration.cs文件，您可以编辑该文件以配置迁移)
+add-migration InitialCreate(初始迁移时运行。Migrations生成从头开始创建数据库的代码)
+
+
+update-database(增量修改实体代码后运行更新)
+
+
+精进
+https://www.cnblogs.com/wgale025/p/6223328.html
+
+迁移到特定版本
+Update-Database –TargetMigration: 版本名称
+回滚到空数据库
+Update-Database –TargetMigration: $InitialDatabase
